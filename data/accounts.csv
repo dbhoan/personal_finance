@@ -1,0 +1,21 @@
+This file provides the instruction for how to read data files for each account.,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,Path,,"Relative or absolute path to data files, default value is same as Account if left blank",,,,,,,,,,,,,
+,Currency,,Default value 'CAD' if left blank,,,,,,,,,,,,,
+,Skip,,"Number of header lines to skip when reading data files, default value 0 if left blank",,,,,,,,,,,,,
+,Date ... Balance,,Specify column numbers (starting from 1) of the corresponding data fields to be imported from data files,,,,,,,,,,,,,
+,Transaction,,Use a multi-digit number for multiple transaction columns (52 means to combine columns 5 & 2),,,,,,,,,,,,,
+,"Amount, In, Out",,"Must specify either Amount, or both In & Out columns (Amount is then calculated as In minus Out)",,,,,,,,,,,,,
+,Balance,,"If provided, data will be verified for consistency. Otherwise, account balance will be calculated from transactions",,,,,,,,,,,,,
+,BalanceEOD,,"If end-of-day balance on a date is provided, it will be used as an anchor point to calculate account daily balance",,,,,,,,,,,,,
+,,,Anchor balance is disregarded when balance data are available.,,,,,,,,,,,,,
+,On,,"The date of the anchor balance, use format yyyy-mm-dd",,,,,,,,,,,,,
+,signs,,"Set to -1 if need to flip the sign of corresponding data, default value 1 if left blank",,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,$,date,# of lines,column #,column #,column #,column #,column #,column #,1 or -1,1 or -1,1 or -1,
+Account,Type,Path,Currency,BalanceEOD,On,Skip,Date,Transaction,Amount,Out,In,Balance,AmtSign,InSign,OutSign,Active
+Creditcard1,Credit,,USD,0,1/1/2017,,1,3,2,,,,-1,,,1
+Savings1,Savings,,,,,2,1,2,,4,3,5,,,,1
+Creditcard2,Credit,,,-259.23,1/16/2017,1,1,2,4,,,,,,,1
+Savings2USD,Savings,,USD,,,,1,2,,3,4,5,,,,1
+Chequing1,Chequing,,,,,,1,2,,3,4,5,,,,1
